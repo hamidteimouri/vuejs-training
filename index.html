@@ -39,6 +39,14 @@
     </div>
 </div>
 <hr>
+<div class="container" id="app4">
+    <div class="row">
+        <div class="col-sm-12">
+            <button class="btn btn-success" v-bind:title="title" v-on:click="showAlert">Show</button>
+        </div>
+    </div>
+</div>
+<hr>
 
 </body>
 <script>
@@ -64,6 +72,17 @@
                 {text: 'Learn Vue'},
                 {text: 'Build something awesome'}
             ]
+        }
+    });
+    const app4 = new Vue({
+        el: "#app4",
+        data: {
+            title: 'click on this button to run an alert'
+        },
+        methods: {
+            showAlert: function () {
+                alert('this alert for test...')
+            }
         }
     });
 </script>
