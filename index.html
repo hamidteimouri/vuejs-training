@@ -47,6 +47,15 @@
     </div>
 </div>
 <hr>
+<div class="container" id="app5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>{{message}}</h2>
+            <input v-bind:title="title" v-model="message" class="form-control">
+        </div>
+    </div>
+</div>
+<hr>
 
 </body>
 <script>
@@ -84,6 +93,13 @@
                 alert('this alert for test...')
             }
         }
+    });
+    const app5 = new Vue({
+        el: "#app5",
+        data: {
+            title: 'write in input',
+            message: "write Laraman.ir ..."
+        },
     });
 </script>
 </html>
