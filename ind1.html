@@ -13,29 +13,27 @@
 <div class="container" id="app">
     <div class="row">
         <div class="col-sm-12">
-            <todo-item v-for="i in myList" v-bind:todo="i" v-bind:key="i.id"></todo-item>
+            <form>
+                <legend>Fill this form</legend>
+                <div class="form-group">
+                    <p class="text-danger" v-show="!message">You must enter a message</p>
+                    <textarea cols="" title="" rows="5" v-model="message" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-primary">Submit</button>
+            </form>
+
         </div>
     </div>
 </div>
-<hr>
+
 
 </body>
 <script>
-    Vue.component('todo-item', {
-        props: ['todo'],
-        template: '<li>{{ todo.text }}</li>'
-    });
     const app = new Vue({
         el: "#app",
         data: {
-            myList: [
-                {id: 0, text: "value 0"},
-                {id: 1, text: "value 1"},
-                {id: 2, text: "value 2"},
-                {id: 3, text: "value 3"},
-            ],
+            message: ""
         }
     });
-
 </script>
 </html>
