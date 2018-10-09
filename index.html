@@ -14,11 +14,31 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="panel"></div>
-            <h3 >{{message}}</h3>
+            <h3>{{message}}</h3>
             <h4 v-bind:title="text">cc</h4>
         </div>
     </div>
 </div>
+<hr>
+<div class="container" id="app2">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>new div</h2>
+            <div v-if="seen">{{condition}}</div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container" id="app3">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul v-for="todo in todos">
+                <li>{{todo.text}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
 
 </body>
 <script>
@@ -27,6 +47,23 @@
         data: {
             message: "hello world",
             text: 'You loaded this page on ' + new Date().toLocaleString()
+        }
+    });
+    const app2 = new Vue({
+        el: "#app2",
+        data: {
+            condition: "if you can see this div, it means condition is ok",
+            seen: true
+        }
+    });
+    const app3 = new Vue({
+        el: "#app3",
+        data: {
+            todos: [
+                {text: 'Learn JavaScript'},
+                {text: 'Learn Vue'},
+                {text: 'Build something awesome'}
+            ]
         }
     });
 </script>
