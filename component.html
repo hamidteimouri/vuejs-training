@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue js training</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<br>
+<br>
+<div class="container" id="app">
+    <div class="row">
+        <div class="col-sm-12">
+            <todo></todo>
+        </div>
+    </div>
+</div>
+<hr>
+
+</body>
+<script>
+    Vue.component('todo',{
+        template: '<li>this is a task</li>'
+    });
+
+</script>
+</html>
