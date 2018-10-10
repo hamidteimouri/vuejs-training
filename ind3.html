@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue js training</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #263238;
+            color: #787878;
+        }
+    </style>
+</head>
+<body>
+<br>
+<br>
+<div class="container" id="app">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1>{{fullName}}</h1>
+            <input v-model="first">
+            <input v-model="last">
+
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            first: "Hamid",
+            last: "Teimouri",
+            fullName: "Hamid Teimouri",
+        },
+        watch: {
+            first: function (first) {
+                this.fullName = first + " " + this.last;
+            },
+            last: function (last) {
+                this.fullName = this.first + " " + last;
+            }
+        }
+    });
+</script>
+</html>
