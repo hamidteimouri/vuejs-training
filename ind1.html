@@ -13,13 +13,13 @@
 <div class="container" id="app">
     <div class="row">
         <div class="col-sm-12">
-            <form>
+            <form action="index.html" @submit.prevent="handle">
                 <legend>Fill this form</legend>
                 <div class="form-group">
-                    <p class="text-danger" v-show="!message">You must enter a message</p>
+                    <p class="text-danger" v-if="!message">You must enter a message</p>
                     <textarea cols="" title="" rows="5" v-model="message" class="form-control"></textarea>
                 </div>
-                <button class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
         </div>
@@ -29,11 +29,18 @@
 
 </body>
 <script>
+
     const app = new Vue({
         el: "#app",
         data: {
             message: ""
+        },
+        methods: {
+            handle: function () {
+                alert("submit stop");
+            }
         }
     });
+
 </script>
 </html>
