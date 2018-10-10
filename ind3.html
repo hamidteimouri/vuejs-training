@@ -44,8 +44,9 @@
         data: {
             first: "Hamid",
             last: "Teimouri",
-            fullName: "Hamid Teimouri",
+            /*fullName: "Hamid Teimouri",*/
         },
+        /*
         watch: {
             first: function (first) {
                 this.fullName = first + " " + this.last;
@@ -54,6 +55,13 @@
                 this.fullName = this.first + " " + last;
             }
         }
+        */
+        computed: {
+            fullName:function () {
+                return this.first + ' ' + this.last;
+            }
+        }
+
     });
 </script>
 </html>
