@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-sm-12">
             <ul class="list-group">
-                <li class="list-group-item" v-for="plan in plans">
+                <li class="list-group-item" v-for="plan in plans" >
                     <plan :plan="plan" @activate="setActive(plan)" :active="activated"></plan>
                 </li>
             </ul>
@@ -38,7 +38,8 @@
 <template id="plan-template">
     <div>
         {{ plan.name }} : $ {{plan.price}} -
-        <button @click="activate" v-if="!isActive" class="btn btn-primary">{{ isUpgrade ? 'Upgrade' : 'Downgrade' }}</button>
+        <button @click="activate" v-if="!isActive" class="btn btn-primary">{{ isUpgrade ? 'Upgrade' : 'Downgrade' }}
+        </button>
         <button v-else disabled class="btn btn-success">Selected</button>
     </div>
 </template>
