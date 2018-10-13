@@ -19,7 +19,7 @@
             color: #787878;
         }
 
-        .completed {
+        .completed, .completed:hover {
             text-decoration: line-through;
         }
     </style>
@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-sm-12">
             <ul class="list-group">
-                <li :class="[task.completed ? 'completed' : '','list-group-item']" v-for="task in tasks"
+                <li @click="toggleCompleted(task)" :class="[task.completed ? 'completed' : '','list-group-item']" v-for="task in tasks"
                     v-text="task.body"></li>
             </ul>
         </div>
@@ -47,6 +47,11 @@
                 {"body": "second task", 'completed': false},
                 {"body": "third task", 'completed': true}
             ]
+        },
+        methods: {
+            toggleCompleted: function (task) {
+                return task.completed = !task.completed;
+            }
         }
     });
 </script>
