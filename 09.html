@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue js training</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #263238;
+            color: #787878;
+        }
+
+        .completed, .completed:hover {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="container" id="app">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <task_list></task_list>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    Vue.component('task', {
+        template: '<li><slot></slot></li>'
+    });
+    Vue.component('task_list', {
+        template: `
+             <div>
+                <task v-for="task in tasks" v-text="task.body" :key="task.id"></task>
+            </div>
+        `,
+        data() {
+            return {
+                tasks: [
+                    {id: 1, body: 'go to doctor', 'completed': false},
+                    {id: 2, body: 'go to store', 'completed': false},
+                ]
+            }
+        }
+    });
+    const app = new Vue({
+        el: "#app"
+    });
+</script>
+</html>
