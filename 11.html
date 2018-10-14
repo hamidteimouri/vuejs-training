@@ -27,7 +27,7 @@
 <br>
 <div class="container" id="app">
     <tabs>
-        <tab name="about" :selected="true">
+        <tab name="about us" :selected="true">
             <h1>About</h1>
         </tab>
         <tab name="contact">
@@ -47,8 +47,8 @@
         <div>
              <div class="tabs">
                 <ul>
-                  <li v-for="tab in tabs" :class="{'is-active' ? tab.selected}">
-                  <a @click="selectTab(tab)" v-text="tab.name"></a>
+                  <li v-for="tab in tabs" :class="{'is-active' : tab.isActive}">
+                  <a @click="selectTab(tab)" :href="tab.href" v-text="tab.name"></a>
                   </li>
                 </ul>
             </div>
@@ -65,7 +65,9 @@
         },
         methods: {
             selectTab(selectedTab) {
-                this.tabs.forEach()
+                this.tabs.forEach(tab => {
+                    tab.isActive = (tab.name == selectedTab.name)
+                })
             }
         }
     });
@@ -79,14 +81,19 @@
             }
         },
         template: `
-            <div><slot></slot></div>
+            <div v-show="isActive"><slot></slot></div>
         `,
+        computed: {
+            href() {
+                return "#" + this.name.toLowerCase().replace(/ /g, '-')
+            }
+        },
         data() {
             return {
                 isActive: false
             }
         },
-        mounted(){
+        mounted() {
             this.isActive = this.selected
         }
     });
