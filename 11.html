@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue js training</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        html, body {
+            /*height: 100%;*/
+        }
+
+        body {
+            /*display: flex;*/
+            /*align-items: center;*/
+            /*justify-content: center;*/
+            /*background-color: #263238;*/
+            /*color: #787878;*/
+        }
+
+        .completed, .completed:hover {
+            /*text-decoration: line-through;*/
+        }
+    </style>
+</head>
+<body>
+<br>
+<div class="container" id="app">
+    <tabs>
+        <tab name="about" :selected="true">
+            <h1>About</h1>
+        </tab>
+        <tab name="contact">
+            <h1>Contact</h1>
+        </tab>
+        <tab name="blog">
+            <h1>Blog</h1>
+        </tab>
+    </tabs>
+</div>
+
+
+</body>
+<script>
+    Vue.component('tabs', {
+        template: `
+        <div>
+             <div class="tabs">
+                <ul>
+                  <li v-for="tab in tabs" :class="{'is-active' ? tab.selected}">
+                  <a @click="selectTab(tab)" v-text="tab.name"></a>
+                  </li>
+                </ul>
+            </div>
+            <div class="content">
+                <slot></slot>
+            </div>
+        </div>
+        `,
+        data() {
+            return {tabs: []};
+        },
+        created() {
+            this.tabs = this.$children;
+        },
+        methods: {
+            selectTab(selectedTab) {
+                this.tabs.forEach()
+            }
+        }
+    });
+    Vue.component('tab', {
+        props: {
+            name: {
+                required: true
+            },
+            selected: {
+                default: false
+            }
+        },
+        template: `
+            <div><slot></slot></div>
+        `,
+        data() {
+            return {
+                isActive: false
+            }
+        },
+        mounted(){
+            this.isActive = this.selected
+        }
+    });
+    const app = new Vue({
+        el: "#app"
+    });
+</script>
+</html>
