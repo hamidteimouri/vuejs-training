@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue js training</title>
+    <!--
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            /*display: flex;*/
+            /*align-items: center;*/
+            /*justify-content: center;*/
+            background-color: #263238 !important;
+            /*color: #787878;*/
+        }
+
+        .completed, .completed:hover {
+            /*text-decoration: line-through;*/
+        }
+
+        .is-active {
+            /*display: block;*/
+        }
+
+    </style>
+</head>
+<body>
+<br>
+<div class="container" id="app">
+    <modal>
+        <template slot="header">Laraman Title</template>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consequuntur dolore eius enim eos labore
+        maiores minima nulla odio optio ratione repudiandae, sequi suscipit tenetur velit! Delectus pariatur praesentium
+        reprehenderit!
+
+        <div slot="footer">
+            <button class="button is-success">Save</button>
+            <button class="button">Cancel</button>
+        </div>
+    </modal>
+</div>
+
+<script src="component/main_16.js"></script>
+</body>
+
+</html>
